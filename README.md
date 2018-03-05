@@ -1,15 +1,14 @@
-# Code for paper "Temporal evolution of quantitative EEG within 3 days of birth in early preterm infants"
-
-R code for:
+Code for manuscript:
 
 `O'Toole JM, Pavlidis E, Korotchikova I, Boylan GB, Stevenson NJ, Temporal evolution of
 quantitative EEG within 3 days of birth in early preterm infants, 2018, under review`
 
+
 Please cite the above reference if using this code to generate new results. 
 
 
-Includes mixed-effects model for EEG features and algorithm to estimate brain maturation
-from the EEG.
+Includes _R_ code for mixed-effects models of the EEG features and an algorithm to
+estimate brain maturation from the EEG.
 
 All code developed in _R_ (version 3.4.2, [The R Foundation of Statistical
 Computing](http://www.r-project.org)).
@@ -19,19 +18,21 @@ EEG features calculated using the NEURAL (version 0.3.3,
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1052811.svg)](https://doi.org/10.5281/zenodo.1052811),
 also available [on github](https://github.com/otoolej/qEEG_feature_set)) with burst
 detector (version 0.1.2,
-[![DOI](https://zenodo.org/badge/42042482.svg)](https://zenodo.org/badge/latestdoi/42042482)),
-also available [on github](https://github.com/otoolej/burst_detector)).
+[![DOI](https://zenodo.org/badge/42042482.svg)](https://zenodo.org/badge/latestdoi/42042482),
+also available [on github](https://github.com/otoolej/burst_detector)). See
+[references](#references) [1,2] for more details on these.
 
 
-*NB:* feature set (as .csv file) will be included at a later stage. 
+__*NB: feature set (as .csv file) will be included at a later stage.*__
 
 
 ## Require packages
-Mixed-effects models use the `lme4` package, gradient boosting uses `gbm`, and for
-parallel processing `foreach` and `doParallel` packages are required. Also, `ggplot2` is
-needed for plotting and `plyr` is required somewhere. 
+Mixed-effects models use the `lme4` package (v1.1.15), gradient boosting uses `gbm`
+(v2.1.3), and for parallel processing `foreach` (v1.4.4) and `doParallel` (v1.0.11)
+packages are required. Also, `ggplot2` (v2.0.0) is needed for plotting and `plyr` (v1.8.3)
+is required somewhere.
 
-If not installed, then need
+If not installed, then 
 
 ``` R
 install.packages('lme4')
@@ -55,21 +56,22 @@ source('var_importance_Niter.R')
 
 Generate mixed-effects models for all EEG features
 ``` R
-	all_features_MEM()
+all_features_MEM()
 ```
 
 ## Estimating maturation
 
 To train and test the model to estimate EEG maturational age (EMA) using cross-validation, 
 ``` R
-	xv_regression()
+xv_regression()
 ```
+(see [references](#references) [3,4] for more details on these types of algorithms.)
+
 
 To assess the importance of the postnatal age as a feature in the EMA model,
 ``` R
-	var_importance_Niter()
+var_importance_Niter()
 ```
-
 
 
 
@@ -110,7 +112,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 1. JM O' Toole, GB Boylan, RO Lloyd, RM Goulding, S Vanhatalo, and NJ Stevenson,
    Detecting Bursts in the EEG of Very and Extremely Premature Infants Using a
    Multi-Feature Approach, Medical Engineering & Physics, vol. 45, pp. 42-50, 2017.
-   [DOI:10.1016/j.medengphy.2017.04.003](https://doi.org/10.1016/j.medengphy.2017.04.003)
+   [doi:10.1016/j.medengphy.2017.04.003](https://doi.org/10.1016/j.medengphy.2017.04.003)
 
 2. JM O’Toole and GB Boylan (2017). NEURAL: quantitative features for newborn EEG using
    Matlab. ArXiv e-prints, arXiv:[1704.05694](https://arxiv.org/abs/1704.05694).
