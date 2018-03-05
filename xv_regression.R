@@ -19,17 +19,21 @@
 ## John M. O' Toole, University College Cork
 ## Started: 23-02-2018
 ##
-## last update: Time-stamp: <2018-03-04 20:21:00 (otoolej)>
+## last update: Time-stamp: <2018-03-05 13:18:25 (otoolej)>
 ##-------------------------------------------------------------------------------
 xv_regression <- function(){
     ##-------------------------------------------------------------------
-    ## load packages and local functions
+    ## set directories; load packages and local functions
     ##-------------------------------------------------------------------
+    data_dir <- './data/'
+    utils_dir <- './utils/'
+    fin_feat_set <- paste(data_dir, 'subset_features_v2.csv', sep='')    
+    
     library('ggplot2')
     library('gbm')
     library('plyr')
-    source('load_feature_set.R')
-    source('set_parameters.R')
+    source(paste(utils_dir, 'load_feature_set.R', sep=""))
+    source(paste(utils_dir, 'set_parameters_EMA.R', sep=""))
 
 
 
@@ -43,8 +47,6 @@ xv_regression <- function(){
     ##-------------------------------------------------------------------
     ## 2. load the feature set
     ##-------------------------------------------------------------------
-    data_dir <- './data/'
-    fin_feat_set <- paste(data_dir, 'subset_features_v2.csv', sep='')
     dfFeats <- load_feature_set(fin_feat_set)
 
     all_ccodes <- unique(dfFeats$c_code)

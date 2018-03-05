@@ -20,19 +20,21 @@
 ## John M. O' Toole, University College Cork
 ## Started: 23-02-2018
 ##
-## last update: Time-stamp: <2018-03-05 11:45:19 (otoolej)>
+## last update: Time-stamp: <2018-03-05 13:22:19 (otoolej)>
 ##-------------------------------------------------------------------------------
 var_importance_Niter <- function(){
 
     ##-------------------------------------------------------------------
     ## load packages and local functions
     ##-------------------------------------------------------------------
+    data_dir <- './data/'
+    utils_dir <- './utils/'
+    
     library('gbm')
     library('foreach')
     library('doParallel')
-
-    source('load_feature_set.R')
-    source('set_parameters.R')
+    source(paste(utils_dir, 'load_feature_set.R', sep=""))
+    source(paste(utils_dir, 'set_parameters_EMA.R', sep=""))
 
 
     ##-------------------------------------------------------------------
@@ -63,7 +65,7 @@ var_importance_Niter <- function(){
     }
 
     ## set number of iterations:
-    Niter <- 1000
+    Niter <- 100
 
 
     ##-------------------------------------------------------------------
