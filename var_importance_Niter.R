@@ -16,16 +16,20 @@
 ##     foreach (version 1.4.4)
 ##     doParallel (version 1.0.11)
 ##
+##     and local functions:
+##            utils/load_feature_set.R
+##            utils/set_parameters_EMA.R 
+
 
 ## John M. O' Toole, University College Cork
 ## Started: 23-02-2018
 ##
-## last update: Time-stamp: <2018-03-05 13:22:19 (otoolej)>
+## last update: Time-stamp: <2018-03-06 17:30:01 (otoolej)>
 ##-------------------------------------------------------------------------------
 var_importance_Niter <- function(){
 
     ##-------------------------------------------------------------------
-    ## load packages and local functions
+    ## 0. load packages and local functions
     ##-------------------------------------------------------------------
     data_dir <- './data/'
     utils_dir <- './utils/'
@@ -65,7 +69,7 @@ var_importance_Niter <- function(){
     }
 
     ## set number of iterations:
-    Niter <- 100
+    Niter <- 1000
 
 
     ##-------------------------------------------------------------------
@@ -93,6 +97,7 @@ var_importance_Niter <- function(){
         );
     cat('\n')
 
+    
     ## remove the CPU cluster
     stopCluster(cl)
 }

@@ -1,7 +1,8 @@
 ##-------------------------------------------------------------------------------
-## xv_regression: parameters for the algorithm to estimate brain maturation
+## xv_EMA_regression: algorithm to estimate EEG maturational age (EMA), tested
+##                    using leave-one-out cross-validation 
 ##
-## Syntax:  xv_regression()
+## Syntax:  xv_EMA_regression()
 ##
 ## Inputs: 
 ##     none
@@ -13,17 +14,21 @@
 ##     gbm (version 2.1.3)
 ##     ggplot2 (version 2.0.0)
 ##     plyr (version 1.8.3)
-##     
+##
+##     and local functions:
+##            utils/load_feature_set.R
+##            utils/set_parameters_EMA.R 
 ##
 
 ## John M. O' Toole, University College Cork
 ## Started: 23-02-2018
 ##
-## last update: Time-stamp: <2018-03-05 13:18:25 (otoolej)>
+## last update: Time-stamp: <2018-03-06 17:30:44 (otoolej)>
 ##-------------------------------------------------------------------------------
-xv_regression <- function(){
+xv_EMA_regression <- function(){
+    
     ##-------------------------------------------------------------------
-    ## set directories; load packages and local functions
+    ## 0. set directories; load packages and local functions
     ##-------------------------------------------------------------------
     data_dir <- './data/'
     utils_dir <- './utils/'
@@ -60,7 +65,7 @@ xv_regression <- function(){
 
 
     ##-------------------------------------------------------------------
-    ## leave-one-out cross validation:
+    ## 3. leave-one-out cross validation:
     ##-------------------------------------------------------------------
     n <- 1
     for(ccode in all_ccodes){
@@ -114,7 +119,7 @@ xv_regression <- function(){
 
 
     ##-------------------------------------------------------------------
-    ## error measures
+    ## 4. error measures
     ##-------------------------------------------------------------------
     cat("\n* TEST results; mean data points\n")
     error_measures(c(rowMeans(GA_all, na.rm=TRUE)),
@@ -124,7 +129,7 @@ xv_regression <- function(){
 
 
     ##-------------------------------------------------------------------
-    ## plot
+    ## 5. plot
     ##-------------------------------------------------------------------
     DBplot <- 1
     if(DBplot) plotGA_GAhat(GA_all, GA_est_all)

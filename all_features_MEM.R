@@ -15,18 +15,19 @@
 ##
 ##     and local functions:
 ##             mixedmodel_each_feature.R
-##             loglikelihood.ratio.test.MEM.R
-##             mem.coeffs.display.R
-##             extract.coeffs.table.R
-## 
+##             utils/loglikelihood.ratio.test.MEM.R
+##             utils/mem.coeffs.display.R
+##             utils/extract.coeffs.table.R
+##
 ##
 
 ## John M. O' Toole, University College Cork
 ## Started: 23-02-2018
 ##
-## last update: Time-stamp: <2018-03-05 11:42:37 (otoolej)>
+## last update: Time-stamp: <2018-03-06 17:31:26 (otoolej)>
 ##-------------------------------------------------------------------------------
 all_features_MEM <- function(){
+    
     ##-------------------------------------------------------------------
     ## 1. set directories
     ##-------------------------------------------------------------------

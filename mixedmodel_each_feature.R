@@ -17,13 +17,15 @@
 ## REQUIRES:
 ##     lme4 (version 1.1.15)
 ##
-##     and local functions: loglikelihood.ratio.test.MEM.R and mem.coeffs.display.R
+##     and local functions:
+##          utils/loglikelihood.ratio.test.MEM.R
+##          utils/mem.coeffs.display.R
 ##
 
 ## John M. O' Toole, University College Cork
 ## Started: 23-02-2018
 ##
-## last update: Time-stamp: <2018-03-05 11:44:25 (otoolej)>
+## last update: Time-stamp: <2018-03-06 17:30:23 (otoolej)>
 ##-------------------------------------------------------------------------------
 mixedmodel_each_feature <- function(dfData, featName = 'generic_feature',
                                     DBverbose = 0){
@@ -35,7 +37,7 @@ mixedmodel_each_feature <- function(dfData, featName = 'generic_feature',
     
 
     ##-------------------------------------------------------------------
-    ## FULL model (i.e. with everything)
+    ## 0. FULL model (i.e. with everything)
     ##-------------------------------------------------------------------
     pd.full <- lme4::lmer(form.full, dfData, REML=FALSE)
 
@@ -105,7 +107,7 @@ mixedmodel_each_feature <- function(dfData, featName = 'generic_feature',
 
     
     ##-------------------------------------------------------------------
-    ## FINAL model: 
+    ## 5. FINAL model: 
     ##-------------------------------------------------------------------
     ## final, with no group x time interactions
     pd.final <- lme4::lmer(form.final, dfData, REML=TRUE)
@@ -127,7 +129,7 @@ mixedmodel_each_feature <- function(dfData, featName = 'generic_feature',
 
 
     ##-------------------------------------------------------------------
-    ## plot
+    ## 6. plot
     ##-------------------------------------------------------------------
     DBplot <- 0
     if(DBplot){
