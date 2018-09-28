@@ -23,7 +23,7 @@ also available [on github](https://github.com/otoolej/burst_detector)). See
 [references](#references) [1,2] for more details on these.
 
 
-__*NB: feature set (as .csv file) will be included at a later stage.*__
+__*NB: feature set (as .csv file) will be included after publication.*__
 
 
 ## Require packages
@@ -73,7 +73,10 @@ To assess the importance of the postnatal age as a feature in the EMA model,
 var_importance_Niter()
 ```
 
-
+## Parameters for the NEURAL toolbox
+Parameter values of the [NEURAL](https://github.com/otoolej/qEEG_feature_set) toolbox used
+to the generate the qEEG features are listed in the file
+[neural_parameters_PNA_qEEG.m](neural_parameters_PNA_qEEG.m).
 
 # Licence
 
