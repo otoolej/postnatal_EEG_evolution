@@ -24,7 +24,7 @@
 ## John M. O' Toole, University College Cork
 ## Started: 23-02-2018
 ##
-## last update: Time-stamp: <2018-03-06 17:31:26 (otoolej)>
+## last update: Time-stamp: <2019-01-10 16:19:57 (otoolej)>
 ##-------------------------------------------------------------------------------
 all_features_MEM <- function(){
     
@@ -33,7 +33,7 @@ all_features_MEM <- function(){
     ##-------------------------------------------------------------------
     data_dir <- './data/'
     utils_dir <- './utils/'
-    fin_feat_set <- paste(data_dir, 'subset_features_v2.csv', sep='')
+    fin_feat_set <- paste(data_dir, 'subset_features_v3.csv', sep='')
     fout_fixed_effects <- paste(data_dir, 'coeffs_fixedEffects_MM_v1.csv', sep='')
     fout_mm_formulas <- paste(data_dir, 'formulas_MM_v1.csv', sep='')
     ## set verbose level (0 or 1):

@@ -4,7 +4,7 @@ Code for manuscript:
 quantitative EEG within 3 days of birth in early preterm infants, 2018, under review`
 
 
-Please cite the above reference if using this code to generate new results. 
+Please cite the above reference if using this code or data to generate new results. 
 
 
 Includes _R_ code for mixed-effects models of the EEG features and an algorithm to
@@ -14,8 +14,8 @@ All code developed in _R_ (version 3.4.2, [The R Foundation of Statistical
 Computing](http://www.r-project.org)).
 
 
-EEG features calculated using the NEURAL (version 0.3.3,
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1052811.svg)](https://doi.org/10.5281/zenodo.1052811),
+EEG features calculated using the NEURAL (version 0.4.0,
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2536888.svg)](https://doi.org/10.5281/zenodo.2536888),
 also available [on github](https://github.com/otoolej/qEEG_feature_set)) with burst
 detector (version 0.1.2,
 [![DOI](https://zenodo.org/badge/42042482.svg)](https://zenodo.org/badge/latestdoi/42042482),
@@ -48,7 +48,7 @@ install.packages('plyr')
 ``` R
 # load the functions:
 source('all_features_MEM.R')	
-source('xv_regression.R')	
+source('xv_EMA_regression.R')	
 source('var_importance_Niter.R')
 ```
 
@@ -63,7 +63,7 @@ all_features_MEM()
 
 To train and test the model to estimate EEG maturational age (EMA) using cross-validation, 
 ``` R
-xv_regression()
+xv_EMA_regression()
 ```
 (see [references](#references) [3,4] for more details on these types of algorithms.)
 
@@ -137,7 +137,7 @@ John M. O' Toole
 Neonatal Brain Research Group,  
 INFANT: Irish Centre for Fetal and Neonatal Translational Research,  
 Department of Paediatrics and Child Health,  
-Room 2.19 Paediatrics Bld, Cork University Hospital,  
+Room 2.19 UCC Academic Paediatric Unit, Cork University Hospital,  
 University College Cork,  
 Ireland
 

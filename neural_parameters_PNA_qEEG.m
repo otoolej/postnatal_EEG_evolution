@@ -4,8 +4,8 @@
 % O'Toole JM, Pavlidis E, Korotchikova I, Boylan GB, Stevenson NJ, Temporal evolution of
 % quantitative EEG within 3 days of birth in early preterm infants, 2018, under review
 % 
-% This parameter file is for the NEURAL toolbox (version 0.3.3, DOI:
-% 10.5281/zenodo.1052811) [1].  This file is the `neural_parameters.m` file 
+% This parameter file is for the NEURAL toolbox (version 0.4.0, DOI:
+% 10.5281/zenodo.2536888) [1].  This file is the `neural_parameters.m` file 
 % in the toolbox.
 % 
 % Also requires burst detector (version 0.1.2, DOI: 10.5281/zenodo.1052139) [2].
@@ -30,7 +30,7 @@
 % John M. O' Toole, University College Cork
 % Started: 28-09-2018
 %
-% last update: Time-stamp: <2018-09-28 16:31:29 (otoolej)>
+% last update: Time-stamp: <2019-01-10 16:23:45 (otoolej)>
 %-------------------------------------------------------------------------------
 
 
@@ -152,22 +152,39 @@ feat_params_st.rEEG.freq_bands=[1 20];
 % C. connectivity features
 %---------------------------------------------------------------------
 % how to estimate the cross spectrum for the coherence function:
-% 1) PSD: estimate power spectral density (e.g. Welch periodgram)
-% 2) robust-PSD: median (instead of mean) of spectrogram 
-% 3) periodogram: magnitude of the discrete Fourier transform
-% [NOTE: periodogram cannot be used for coherence function]
-feat_params_st.connectivity.method='PSD'; 
+% 1) PSD: estimate power spectral density (e.g. Welch periodogram)
+% 2) bartlett-PSD: Welch periodogram with 0% overlap and rectangular window
+%    (necessary if using the analytic assessment of zero coherence, see below)
+feat_params_st.connectivity.method='bartlett-PSD'; 
 
 feat_params_st.connectivity.freq_bands=FREQ_BANDS;
 feat_params_st.connectivity.L_window=8; % PSD window in seconds
 feat_params_st.connectivity.overlap=75; % PSD window percentage overlap
 feat_params_st.connectivity.window_type='hamm'; % PSD window type
-% find lower coherence limit using surrogate data?
-% (number of iterations required to generate null-hypothesis distribution;
-%  set to 0 to turn off)
-feat_params_st.connectivity.coherence_surr_data=1000; 
+
+
+
+% find lower coherence limit using either either a surrogate-data
+% approach [1] or an analytic threshold [2]
+% [1] Faes L, Pinna GD, Porta A, Maestri R, Nollo G (2004). Surrogate data analysis for
+%     assessing the significance of the coherence function. IEEE Transactions on
+%     Biomedical Engineering, 51(7):1156–1166.
+% [2] Halliday, DM, Rosenberg, JR, Amjad, AM, Breeze, P, Conway, BA, &
+%     Farmer, SF. (1995). A framework for the analysis of mixed time series/point
+%     process data--theory and application to the study of physiological tremor, single
+%     motor unit discharges and electromyograms. Progress in Biophysics and Molecular
+%     Biology, 64(2–3), 237–278.
+% 
+% options for 'feat_params_st.connectivity.coherence_zero_level' are: 
+% 1) 'surr' for [1]
+% 2) 'analytic' for [2]
+% 3) '' to not implement
+feat_params_st.connectivity.coherence_zero_level='analytic';
 % alpha value for null-hypothesis disribution cut-off:
-feat_params_st.connectivity.coherence_surr_alpha=0.05;
+feat_params_st.connectivity.coherence_zero_alpha=0.05;
+% number of iterations required to generate null-hypothesis distribution if 
+% using surrogate data approach ([2]):
+feat_params_st.connectivity.coherence_surr_iter=1000; 
 
 
 %---------------------------------------------------------------------

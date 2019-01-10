@@ -1,5 +1,5 @@
 ## ignore the following
 TODO_for_paper.org
 data/change_c_codes.sh
-data/subset_features_v2.csv
+data/subset_features_v*csv
 .Rhistory
