@@ -14,10 +14,10 @@ All code developed in _R_ (version 3.4.2, [The R Foundation of Statistical
 Computing](http://www.r-project.org)).
 
 
-EEG features calculated using the NEURAL (version 0.4.0,
+EEG features calculated using NEURAL (version 0.4.0 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2536888.svg)](https://doi.org/10.5281/zenodo.2536888),
 also available [on github](https://github.com/otoolej/qEEG_feature_set)) with burst
-detector (version 0.1.2,
+detector (version 0.1.2 
 [![DOI](https://zenodo.org/badge/42042482.svg)](https://zenodo.org/badge/latestdoi/42042482),
 also available [on github](https://github.com/otoolej/burst_detector)). See
 [references](#references) [1,2] for more details on these.
