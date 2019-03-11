@@ -1,7 +1,11 @@
 Code for manuscript:
 
-`O'Toole JM, Pavlidis E, Korotchikova I, Boylan GB, Stevenson NJ, Temporal evolution of
-quantitative EEG within 3 days of birth in early preterm infants, 2018, under review`
+
+O'Toole JM, Pavlidis E, Korotchikova I, Boylan GB, Stevenson NJ, Temporal evolution of
+quantitative EEG within 3 days of birth in early preterm infants, Scientific Reports,
+41227, [DOI: 10.1038/s41598-019-41227-9](https://doi.org/10.1038/s41598-019-41227-9)
+(2019)
+
 
 
 Please cite the above reference if using this code or data to generate new results. 
@@ -23,7 +27,6 @@ also available [on github](https://github.com/otoolej/burst_detector)). See
 [references](#references) [1,2] for more details on these.
 
 
-__*NB: feature set (as .csv file) will be included after publication.*__
 
 
 ## Require packages
